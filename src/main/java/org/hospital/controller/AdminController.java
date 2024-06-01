@@ -35,7 +35,7 @@ public class AdminController extends HttpServlet {
             response.sendRedirect("Main.jsp");
         } else {
             request.setAttribute("errorMessage", "Invalid credentials. Please try again.");
-            request.getRequestDispatcher("AddUserLogin.jsp").forward(request, response);
+            request.getRequestDispatcher("new.jsp").forward(request, response);
         }
 
     }

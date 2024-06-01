@@ -25,7 +25,7 @@
 <div class="row">
 
 <div class="row flex-nowrap">
-<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-warning">
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-danger">
 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
 <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 <img alt="" src="Images/hospitallogo.png" style="width: 100px; height: auto;">
@@ -44,7 +44,7 @@ updateDateTime();
 
 setInterval(updateDateTime, 1000);
 </script>
-        <h6>Welcome Admin Page</h6>
+        <h6>Welcome Docter Page</h6>
 
 
 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
@@ -53,13 +53,11 @@ setInterval(updateDateTime, 1000);
             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline"><img src="Images/menu2.png" ></span>
         </a>
         <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                    <li class="w-100"><a href="AddnewUser.jsp" class="nav-link px-0"> <span class="d-none d-sm-inline">Add New Recipstionst</span> </a></li>
+                                                        <li class="w-100"><a href=" ViewPatientfordocter.jsp" class="nav-link px-0"> <span class="d-none d-sm-inline text-light">View Allpatient</span> </a></li>
         
-            <li class="w-100"><a href="AddDocter.jsp" class="nav-link px-0"> <span class="d-none d-sm-inline">Add New Doctor</span> </a></li>
-                        <li class="w-100"><a href=" CreateDocterLogin.jsp" class="nav-link px-0"> <span class="d-none d-sm-inline">Create DoctorLogin</span> </a></li>
+                        <li class="w-100"><a href=" Prescription.jsp" class="nav-link px-0"> <span class="d-none d-sm-inline text-light">Prescription Allocate</span> </a></li>
+                                    <li class="w-100"><a href=" ViewPrescription.jsp" class="nav-link px-0"> <span class="d-none d-sm-inline text-light">View Prescription</span> </a></li>
             
-            <li class="w-100"><a href="viewDocter.jsp" class="nav-link px-0"> <span class="d-none d-sm-inline">View All Doctor</span></a></li>
-
 
         </ul>
     </li>
@@ -67,7 +65,7 @@ setInterval(updateDateTime, 1000);
 	<div class="dropdown pb-4">
             <a href="" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle " id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://static.vecteezy.com/system/resources/previews/000/569/503/original/sign-of-hospital-icon-vector.jpg" alt="Admin" width="30" height="30" class="rounded-circle me-2">
-Admin <%= session.getAttribute("username") %> </a>
+Doctor Login <%= session.getAttribute("docusername") %> </a>
 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
 <li><a class="dropdown-item" href="#">Employee</a></li>
 <li><a class="dropdown-item" href="#">Settings</a></li>

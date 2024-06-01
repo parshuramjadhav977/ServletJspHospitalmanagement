@@ -2,7 +2,6 @@ package org.hospital.controller;
 
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.DocerModel.DocterModel;
 import org.hospital.service.Docterservice;
 import org.hospital.service.DocterserviceImpl;
+import com.google.gson.Gson;
 
 @WebServlet("/search")
 public class SearchDocterController extends HttpServlet {
@@ -21,10 +21,12 @@ public class SearchDocterController extends HttpServlet {
         
         List<DocterModel> searchResults = docterservice.searchDoctors(keyword);
         
-        request.setAttribute("searchResults", searchResults);
+        Gson gson = new Gson();
+        String jsonResponse = gson.toJson(searchResults);
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("searchResults.jsp");
-        dispatcher.forward(request, response);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(jsonResponse);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

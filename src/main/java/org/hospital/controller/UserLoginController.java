@@ -31,10 +31,10 @@ public class UserLoginController extends HttpServlet {
 	            session.setAttribute("username", username);
 	            session.setAttribute("password", password);
 
-	            response.sendRedirect("Main.jsp");
+	            response.sendRedirect("MainReceptionist.jsp");
 	        } else {
 	            request.setAttribute("errorMessage", "Invalid credentials. Please try again.");
-	            request.getRequestDispatcher("AddUserLogin.jsp").forward(request, response);
+	            request.getRequestDispatcher("new.jsp").forward(request, response);
 	        }
 
 	    }

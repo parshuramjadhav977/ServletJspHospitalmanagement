@@ -33,7 +33,7 @@ table {
 </head>
 <body>
     <div class="container-fluid">
-        <%@include file="Main.jsp"%>
+        <%@include file="MainReceptionist.jsp"%>
 
         <div class="col py-3">
 <div class="search-bar">

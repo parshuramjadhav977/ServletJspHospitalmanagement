@@ -37,7 +37,7 @@ table {
 	rel="stylesheet">
 </head>
 <body>
-	<%@include file="Main.jsp"%>
+	<%@include file="MainDocter.jsp"%>
 
 	<div class="col py-3">
 		<div class="container mt-5">

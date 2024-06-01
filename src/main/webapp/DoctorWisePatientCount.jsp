@@ -24,7 +24,7 @@ table {
 </style>
 </head>
 <body>
-<%@include file="Main.jsp"%>
+<%@include file="MainReceptionist.jsp"%>
 
 <div class="col py-3">
 

@@ -43,7 +43,7 @@ public class PrescriptionController extends HttpServlet {
             request.setAttribute("patientId", prescription.getPtid());
             request.setAttribute("doctorId", prescription.getDocid());
 
-            RequestDispatcher rs = request.getRequestDispatcher("Main.jsp");
+            RequestDispatcher rs = request.getRequestDispatcher("MainDocter.jsp");
             rs.include(request, response);
             out.println("<center><h1>Add Prescription Success</h1></center>");
         } else {

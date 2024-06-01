@@ -51,7 +51,7 @@ table {
 </style>
 </head>
 <body>
-    <%@include file="MainReceptionist.jsp"%>
+    <%@include file="MainDocter.jsp"%>
 
     <div class="col py-3">
 <div class="search-bar">

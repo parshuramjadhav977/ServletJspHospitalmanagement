@@ -66,7 +66,7 @@
     </style>
 </head>
 <body>
-    <%@include file="Main.jsp"%>
+    <%@include file="MainDocter.jsp"%>
 
     <div class="col py-3">
         <form action="PrescriptionController" method="post" ">

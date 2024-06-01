@@ -1,8 +1,6 @@
 package org.hospital.service;
 
 import java.util.List;
-
-
 import org.DocerModel.DocterModel;
 import org.hospital.repository.DocterRepository;
 import org.hospital.repository.DocterRepositoryImpl;
@@ -30,9 +28,9 @@ public class DocterserviceImpl implements Docterservice {
     public boolean isUpdateDocter(DocterModel model) {
         return docRepo.isUpdateDocter(model); // Delegate update operation to the repository
     }
+
     @Override
     public List<DocterModel> searchDoctors(String keyword) {
         return docRepo.searchDoctors(keyword);
     }
-
 }

@@ -71,38 +71,39 @@ width: fit-content;
 <body>
     <%@ include file="Admindashbord.jsp" %>
 
-   <div class="col py-3">
     
     
     <div class="col py-12">
         <div class="container " id="login">
             <center>
-                <h2>Admin Login </h2>
+                <h2>Docter Login </h2>
                 
-                <form id="adminLoginForm" action="admin" method="POST">
-                    <input type="text" name="adminUsername" id="adminUsername" placeholder="Username" required autocomplete="off"><br>
-                    <input type="password" name="adminPassword" id="adminPassword" placeholder="Password" required><br>
+                <form id="DocterLoginForm" action="DocterLoginFromController" method="POST">
+                    <input type="text" name="docusername" id="Docusername" placeholder="Docusername" required autocomplete="off"><br>
+                    <input type="password" name="docpassword" id="Docpassword" placeholder="Docpassword" required><br>
                     <input type="submit" value="Login">
-                    <div id="errorMessage" class="error-message"></div> 
+                    <div id="errorMessage" class="error-message"></div>  
                 </form>
             </center>
         </div>
-       </div>
+       
+    
+    </div>
            
-  
-  
    </div>
-   </div>
- </div>
-            
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        <% if(request.getAttribute("errorMessage") != null) { %>
-            var errorMessage = "<%= request.getAttribute("errorMessage") %>";
-            document.getElementById("errorMessage").innerHTML = "<p><%= request.getAttribute("errorMessage") %></p>";
-        <% } %>
-    </script>
-    
-</body>
-</html>
+      
+    </div>
+
+
+
+
+
+
+
+
+                    
+                  
+
+                    
+                    
+                    

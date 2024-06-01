@@ -49,19 +49,10 @@ table {
     margin-left: 10px; /* Adjust the margin as needed */
 }
 </style>
-<script type ="text/javascript">
-
-const inputElement = document.getElementById('input[type="text"]');
-inputElement.onchange = function(e) {
-	console.log(e.target.value);
-	
-	};
-
-</script>
 </head>
 <body>
     <%-- Include Main.jsp for common header/footer --%>
-    <%@include file="Main.jsp"%>
+    <%@include file="MainReceptionist.jsp"%>
     
     <div class="col py-3">
         <div class="search-bar">
@@ -83,8 +74,6 @@ inputElement.onchange = function(e) {
                     <th scope="col">Degree</th>
                     <th scope="col">Contact</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Delete</th>
-                    <th scope="col">Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -110,9 +99,7 @@ inputElement.onchange = function(e) {
                     <td><%=doctor.getDgree()%></td>
                     <td><%=doctor.getContact()%></td>
                     <td><%=doctor.getAddress()%></td>
-                    <td><a href='del?did=<%=doctor.getId()%>'><img src="Images/delete.png" alt="33"></a></td>
-<td><a href='upddocter?did=<%=doctor.getId()%>&docname=<%=doctor.getName()%>&speciality=<%=doctor.getSpeciality()%>&designation=<%=doctor.getDesigination()%>&degree=<%=doctor.getDgree()%>&contact=<%=doctor.getContact()%>&address=<%=doctor.getAddress()%>'><img src="Images/update.png" alt="33"></a></td>
-                </tr>
+ </tr>
                 <% } %>
             </tbody>
         </table>
