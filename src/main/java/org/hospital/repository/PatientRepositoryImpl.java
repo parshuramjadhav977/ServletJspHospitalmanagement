@@ -147,11 +147,11 @@ public class PatientRepositoryImpl extends DBConfig implements PatientRepository
 	}
 
 	@Override
-	public List<PatientModel> searchPatient(String keyword) {
+	public List<PatientModel> searchPatient(String search) {
         List<PatientModel> resultList = new ArrayList<>();
         try {
             stmt = conn.prepareStatement("SELECT * FROM patient WHERE ptName LIKE ?");
-            stmt.setString(1, "%" + keyword + "%");
+            stmt.setString(1, "%" + search + "%");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 PatientModel model = new PatientModel();
@@ -404,7 +404,88 @@ public class PatientRepositoryImpl extends DBConfig implements PatientRepository
         return doctorWisePatientCount;	
         
 	}
-    	
+
+	@Override
+	public Map<String, Map<String, Integer>> getMaximumPatientOPDSection() {
+	    Map<String, Map<String, Integer>> maxPatientOPDSection = new HashMap<>();
+	    try {
+	        stmt = conn.prepareStatement("SELECT MONTHNAME(opddate) AS month, YEAR(opddate) AS year, COUNT(*) AS patientCount FROM patient WHERE category = 'ipd' GROUP BY year, month ORDER BY patientCount DESC LIMIT 1");
+	        rs = stmt.executeQuery();
+	        if (rs.next()) {
+	            String month = rs.getString("month");
+	            int year = rs.getInt("year");
+	            int patientCount = rs.getInt("patientCount");
+
+	            Map<String, Integer> details = new HashMap<>();
+	            details.put("year", year);
+	            details.put("patientCount", patientCount);
+
+	            maxPatientOPDSection.put(month, details);
+	        }
+	    } catch (SQLException ex) {
+	        System.out.println("Error retrieving maximum patient OPD section: " + ex.getMessage());
+	    } 
+	    return maxPatientOPDSection;
+	}
+
+	@Override
+	public Map<String, Map<String, Integer>> getMaximumPatientIPDSection() {
+	    Map<String, Map<String, Integer>> maxPatientIPDSection = new HashMap<>();
+	    try {
+	        stmt = conn.prepareStatement("SELECT MONTHNAME(opddate) AS month, YEAR(opddate) AS year, COUNT(*) AS patientCount FROM patient WHERE category = 'OPD' GROUP BY year, month ORDER BY patientCount DESC LIMIT 1");
+	        rs = stmt.executeQuery();
+	        if (rs.next()) {
+	            String month = rs.getString("month");
+	            int year = rs.getInt("year");
+	            int patientCount = rs.getInt("patientCount");
+
+	            Map<String, Integer> details = new HashMap<>();
+	            details.put("year", year);
+	            details.put("patientCount", patientCount);
+
+	            maxPatientIPDSection.put(month, details);
+	        }
+	    } catch (SQLException ex) {
+	        System.out.println("Error retrieving maximum patient OPD section: " + ex.getMessage());
+	    } 
+	    return maxPatientIPDSection;
+	
+	}
+
+	@Override
+	public List<PatientModel> getpatientHistory() {
+	    try {
+	        list = new ArrayList<PatientModel>();
+	        stmt = conn.prepareStatement("select p.ptid,p.ptname,p.age,p.gender,p.contact,p.address,p.opddate,d.docname,p.fess,p.appoinmentdate,p.category,ps.Prescription_id,ps.Prescription_details,ps.did from patient p inner join prescriptions ps on ps.ptid=p.ptid inner join   doctor d on d.did=ps.did;");
+	        rs = stmt.executeQuery();
+	        while (rs.next()) {
+	            PatientModel patient = new PatientModel();
+	            patient.setPtid(rs.getInt(1)); 
+
+	            patient.setPtName(rs.getString(2));
+	            patient.setAge(rs.getInt(3));
+	            patient.setGender((rs.getString(4)));
+
+	            patient.setContact(rs.getString(5));
+	            patient.setAddress(rs.getString(6));
+	            patient.setOpdDate(rs.getString(7));
+	            patient.setDocname(rs.getString(8));
+	            patient.setFess(rs.getDouble(9));
+	            patient.setAppointmentDate(rs.getString(10));
+	            patient.setCategory((rs.getString(11)));
+	            patient.setPrescription_id(rs.getInt(12));
+	            patient.setPrescription_details(rs.getString(13));
+	            patient.setDid(rs.getInt(14));
+
+	            list.add(patient);
+	        }
+	        return list.size() > 0 ? list : null;
+	    } catch (Exception ex) {
+	        System.out.println("Error is " + ex);
+	        return null;
+	    }
+	}
+
 	}
 	
 

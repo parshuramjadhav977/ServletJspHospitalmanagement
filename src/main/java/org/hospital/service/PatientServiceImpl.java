@@ -34,8 +34,8 @@ public class PatientServiceImpl extends DBConfig implements PatientService {
 	}
 
 	@Override
-	public List<PatientModel> searchPatient(String keyword) {
-		return patientRepository.searchPatient(keyword);
+	public List<PatientModel> searchPatient(String search) {
+		return patientRepository.searchPatient(search);
 	}
 
 	@Override
@@ -83,9 +83,25 @@ public class PatientServiceImpl extends DBConfig implements PatientService {
 
 	@Override
 	public Map<String, Integer> getDoctorWisePatientCount() {
-		// TODO Auto-generated method stub
 		return patientRepository.getDoctorWisePatientCount() ;
 	}
+
+	@Override
+	public Map<String, Map<String, Integer>> getMaximumPatientOPDSection() {
+		return patientRepository.getMaximumPatientOPDSection();
+	}
+
+	@Override
+	public Map<String, Map<String, Integer>> getMaximumPatientIPDSection() {
+		return patientRepository.getMaximumPatientIPDSection();
+	}
+
+	@Override
+	public List<PatientModel> getpatientHistory() {
+		return patientRepository.getpatientHistory();
+	}
+
+
 
 
 

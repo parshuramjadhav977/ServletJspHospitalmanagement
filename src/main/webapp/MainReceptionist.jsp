@@ -101,13 +101,13 @@
 									<li class="w-100"><a href="DoctorWisePatientCount.jsp"
 										class="nav-link px-0"> <span class="d-none d-sm-inline">DoctorWise
 												PatientCount</span></a></li>
-									<li class="w-100"><a href="new.jsp" class="nav-link px-0">
+									<li class="w-100"><a href="MaximumPatientOPDSectioninmonth.jsp" class="nav-link px-0">
 											<span class="d-none d-sm-inline">Maximum Patient OPD
 												Section</span>
 									</a></li>
-									<li class="w-100"><a href="" class="nav-link px-0"> <span
+									<li class="w-100"><a href="MaximumPatientIPDSectioninmonth.jsp" class="nav-link px-0"> <span
 											class="d-none d-sm-inline">Maximum Patient IPD Section</span></a></li>
-									<li class="w-100"><a href="" class="nav-link px-0"> <span
+									<li class="w-100"><a href="patientHistory.jsp" class="nav-link px-0"> <span
 											class="d-none d-sm-inline">Patient History</span></a></li>
 
 

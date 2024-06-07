@@ -8,6 +8,6 @@ public interface DocterRepository {
     public List<DocterModel> getAllDocter();
     public boolean isDeleteDocterById(int did);
     public boolean isUpdateDocter(DocterModel model);
-    public List<DocterModel> searchDoctors(String keyword);
+    public List<DocterModel> searchDoctors(String search);
 
 }

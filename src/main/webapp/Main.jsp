@@ -80,11 +80,5 @@ Admin <%= session.getAttribute("username") %> </a>
 </div>
 </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        $('.dropdown-toggle').dropdown();
-    });
-</script>
 </body>
 </html>

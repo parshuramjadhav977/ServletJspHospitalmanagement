@@ -17,10 +17,27 @@ public class PatientModel {
 	private double fess;
     private String appointmentDate;
     private String category;
+    private  int Prescription_id;
+    private String Prescription_details;
+    
+    
+    public int getPrescription_id() {
+		return Prescription_id;
+	}
 
-    
-    
-    public String getDocname() {
+	public void setPrescription_id(int prescription_id) {
+		Prescription_id = prescription_id;
+	}
+
+	public String getPrescription_details() {
+		return Prescription_details;
+	}
+
+	public void setPrescription_details(String prescription_details) {
+		Prescription_details = prescription_details;
+	}
+
+	public String getDocname() {
 		return docname;
 	}
 

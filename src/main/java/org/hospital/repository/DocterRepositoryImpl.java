@@ -102,11 +102,12 @@ public class DocterRepositoryImpl extends DBConfig implements DocterRepository {
     }
     
     @Override
-    public List<DocterModel> searchDoctors(String keyword) {
+    public List<DocterModel> searchDoctors(String search) {
+    	
         List<DocterModel> resultList = new ArrayList<>();
         try {
             stmt = conn.prepareStatement("SELECT * FROM doctor WHERE docname LIKE ?");
-            stmt.setString(1, "%" + keyword + "%");
+            stmt.setString(1, "%" + search + "%");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 DocterModel model = new DocterModel();

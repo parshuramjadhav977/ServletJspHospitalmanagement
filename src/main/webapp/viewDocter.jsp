@@ -51,28 +51,27 @@ table {
 </style>
 <script type ="text/javascript">
 
-const inputElement = document.getElementById('input[type="text"]');
-inputElement.onchange = function(e) {
-	console.log(e.target.value);
-	
-	};
+function SearchData(){
+    var str = document.getElementById("m").value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status == 200){
+              document.getElementById("d").innerHTML = this.responseText;
+          }  
+    };
+    xhttp.open("GET", "SearchDocter.jsp?q=" + str, true);
+    xhttp.send();
+   }
 
 </script>
 </head>
 <body>
-    <%-- Include Main.jsp for common header/footer --%>
     <%@include file="Main.jsp"%>
-    
-    <div class="col py-3">
-        <div class="search-bar">
-            <form action="viewDocter.jsp" method="GET">
-                <input type="text" name="search" class="search-input" placeholder="Search doctor...">
-                <button type="submit" class="search-button">Search</button>
-            </form>
-        </div>
+    <div class=" col-md-9 mt-5">
+                <input type="text" id="m" name="search" class="search-input" onkeyup="SearchData()"/>
         
         <h1>Doctor Details</h1>
-        <table class="table">
+        <table id="d" class="table">
             <thead>
                 <tr>
                     <th scope="col">Sr no</th>
@@ -91,13 +90,9 @@ inputElement.onchange = function(e) {
                 <%-- Retrieve doctor list and iterate --%>
                 <% 
                 Docterservice docterservice = new DocterserviceImpl();
-                List<DocterModel> doctorList;
-                String search = request.getParameter("search");
-                if (search != null && !search.isEmpty()) {
-                    doctorList = docterservice.searchDoctors(search);
-                } else {
-                    doctorList = docterservice.getAllDocter();
-                }
+                List<DocterModel> doctorList=docterservice.getAllDocter();
+              if(doctorList!=null)
+              {
                 int count = 0;
                 for(DocterModel doctor : doctorList) { 
                 %>
@@ -113,9 +108,15 @@ inputElement.onchange = function(e) {
                     <td><a href='del?did=<%=doctor.getId()%>'><img src="Images/delete.png" alt="33"></a></td>
 <td><a href='upddocter?did=<%=doctor.getId()%>&docname=<%=doctor.getName()%>&speciality=<%=doctor.getSpeciality()%>&designation=<%=doctor.getDesigination()%>&degree=<%=doctor.getDgree()%>&contact=<%=doctor.getContact()%>&address=<%=doctor.getAddress()%>'><img src="Images/update.png" alt="33"></a></td>
                 </tr>
-                <% } %>
+                <%
+                }
+                }
+                %>
+                
             </tbody>
         </table>
+    </div>
+    </div>
     </div>
 </body>
 </html>

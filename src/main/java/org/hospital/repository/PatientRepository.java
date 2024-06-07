@@ -12,7 +12,7 @@ public interface PatientRepository {
     public List<PatientModel> getAllPatient();
     public boolean isDeletePatient(int ptid);
     public boolean isUpdatePatient(PatientModel patient);
-    public List<PatientModel> searchPatient(String keyword);
+    public List<PatientModel> searchPatient(String search);
     public List<PatientModel> getPatientsByCategory(String category);
     public List<PatientModel> getPatientsByDate(Date date) ;
 	public List<PatientModel> getPatientsByMonth(int year, int month) ;
@@ -20,7 +20,9 @@ public interface PatientRepository {
 	public List<PatientModel> getPatientsBetweenDates(Date startDate, Date endDate) ;
     public List<PatientModel> getPatientsByDoctorId(int doctorId);
     public Map<String, Integer> getDoctorWisePatientCount() ;
-
+	public Map<String, Map<String, Integer>> getMaximumPatientOPDSection() ;
+	public Map<String, Map<String, Integer>> getMaximumPatientIPDSection() ;
+    public List<PatientModel> getpatientHistory();
 
 
     

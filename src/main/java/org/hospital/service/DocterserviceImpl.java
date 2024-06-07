@@ -30,7 +30,7 @@ public class DocterserviceImpl implements Docterservice {
     }
 
     @Override
-    public List<DocterModel> searchDoctors(String keyword) {
-        return docRepo.searchDoctors(keyword);
+    public List<DocterModel> searchDoctors(String search) {
+        return docRepo.searchDoctors(search);
     }
 }

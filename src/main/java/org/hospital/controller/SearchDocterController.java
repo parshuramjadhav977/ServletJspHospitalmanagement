@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 @WebServlet("/search")
 public class SearchDocterController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String keyword = request.getParameter("keyword");
+        String keyword = request.getParameter("search");
         
         Docterservice docterservice = new DocterserviceImpl();
         
