@@ -107,6 +107,10 @@ function SearchData(){
                     <td><%=doctor.getAddress()%></td>
                     <td><a href='del?did=<%=doctor.getId()%>'><img src="Images/delete.png" alt="33"></a></td>
 <td><a href='upddocter?did=<%=doctor.getId()%>&docname=<%=doctor.getName()%>&speciality=<%=doctor.getSpeciality()%>&designation=<%=doctor.getDesigination()%>&degree=<%=doctor.getDgree()%>&contact=<%=doctor.getContact()%>&address=<%=doctor.getAddress()%>'><img src="Images/update.png" alt="33"></a></td>
+                
+                
+                
+                
                 </tr>
                 <%
                 }
